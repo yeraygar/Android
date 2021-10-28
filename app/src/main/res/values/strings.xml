@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ucollect</string>
+    <string name="collectapp">U Collect</string>
+    <string name="log_in">Logear</string>
+    <string name="sign_up">Registrar</string>
+    <string name="user">Usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ver_password">ver_password</string>
+    <string name="iniciar_sesi_n">Acceder</string>
+    <string name="email">Email</string>
+    <string name="olvidado">He olvidado mi contraseña</string>
+</resources>
