@@ -110,7 +110,6 @@
         android:id="@+id/buttonLoginAcceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/montserrat_reg"
         android:padding="30dp"
@@ -121,19 +120,27 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/montserrat_reg"
         android:text="@string/olvidado"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

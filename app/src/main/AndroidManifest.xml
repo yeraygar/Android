@@ -3,13 +3,16 @@
     package="garcia.yeray.ucollect">
 
     <application
+        android:allowBackup="true"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ucollect"
-        android:allowBackup="true">
+        android:theme="@style/Theme.Ucollect">
+        <activity
+            android:name=".FortgotPassword"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

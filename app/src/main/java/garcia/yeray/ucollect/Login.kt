@@ -1,5 +1,6 @@
 package garcia.yeray.ucollect
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -9,13 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.viewpager2.widget.ViewPager2
 import garcia.yeray.ucollect.databinding.FragmentLoginBinding
 
 class Login : Fragment() {
     private lateinit var bindin : FragmentLoginBinding
     private var isPasswordVisible : Boolean = false
-    //private val adapter by lazy { ViewPagerAdapterLogin(this) }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +30,7 @@ class Login : Fragment() {
         bindin.EditTextLoginPassword.doAfterTextChanged {cambiarEstadoImageButton(bindin.EditTextLoginPassword.text.toString())}
         bindin.imageButtonOjoLogin.setOnClickListener{mostrarPass()}
         bindin.TextViewLoginRegistrar.setOnClickListener{moverFragment()}
+        bindin.textViewForgot.setOnClickListener{this.startActivity(Intent(activity,FortgotPassword::class.java))}
 
 
         //retornamos la vista (root)
@@ -38,7 +39,7 @@ class Login : Fragment() {
     }
 
     private fun acceder(){
-        //haz login
+
     }
 
     private fun mostrarPass(){
@@ -54,7 +55,9 @@ class Login : Fragment() {
     }
 
     private fun moverFragment(){
-
+        bindin.editTextEmailLogin.setText("")
+        bindin.EditTextLoginPassword.setText("")
+        requireActivity().findViewById<ViewPager2>(R.id.pager).currentItem = 1
     }
 
     private fun cambiarEstadoImageButton(texto : String?){

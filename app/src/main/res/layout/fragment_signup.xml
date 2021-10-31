@@ -6,6 +6,79 @@
     android:layout_height="match_parent"
     android:background="@drawable/signup_gradient_background"
     tools:context=".Signup">
+
+    <Button
+        android:id="@+id/buttonSignupRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/montserrat_reg"
+        android:padding="30dp"
+        android:text="@string/crear_cuenta"
+        android:textColor="#881CCA"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tab_personalizada"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailSignup"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailSignup"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignup">
+
+        <EditText
+            android:id="@+id/EditTextSignupPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="9"
+            android:fontFamily="@font/montserrat_reg"
+            android:hint="@string/contrase_a"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColorHint="@color/black"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonOjoSignUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/ver_password"
+            android:padding="15dp"
+            android:src="@drawable/ic_baseline_visibility_24"
+            app:tint="@color/black" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/editTextEmailSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:width="330dp"
+        android:background="@drawable/tab_personalizada"
+        android:fontFamily="@font/montserrat_reg"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textColorHint="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/TextViewSignUpRegistrar"
+        app:layout_constraintStart_toStartOf="@+id/TextViewSignUpLogear"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewSignUpRegistrar" />
+
     <TextView
         android:id="@+id/TextViewTituloSignUp"
         android:layout_width="wrap_content"
@@ -51,24 +124,11 @@
         app:layout_constraintStart_toEndOf="@+id/TextViewSignUpLogear"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTituloSignUp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="330dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="1dp"
-        android:backgroundTint="#ffffffff"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewSignUpRegistrar">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:backgroundTint="#ffffffff"
-            android:hint="hint"
-            app:cornerRadius="20dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,10 @@ class ViewPagerAdapterLogin(fragment: MainActivity) : FragmentStateAdapter(fragm
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
-        when(position) {
-            0 -> return Login()
-            1 -> return Signup()
-            else -> return Login()
+        return when(position) {
+            0 -> Login()
+            1 -> Signup()
+            else -> Login()
         }
     }
 }

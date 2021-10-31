@@ -4,14 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/boton_log.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/gradient_forgot_password.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/login_gradient_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/signup_gradient_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/tab_personalizada.xml" value="0.2675925925925926" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_fortgot_password.xml" value="0.2609375" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_signup.xml" value="0.33" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/nuevo.xml" value="0.3234375" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/prueba.xml" value="0.3234375" />
       </map>
     </option>
   </component>
