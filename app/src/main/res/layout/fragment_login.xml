@@ -4,44 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_gradient_background"
+    android:background="@drawable/gradient_forgot_password"
     tools:context=".Login">
 
     <TextView
         android:id="@+id/TextViewTituloLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/lobster"
         android:text="@string/collectapp"
         android:textColor="@color/white"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/TextViewLoginLogear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:fontFamily="@font/montserrat_reg"
         android:text="@string/log_in"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TextViewLoginRegistrar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewTituloLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/TextViewTituloLogin"
+        app:layout_constraintVertical_bias="0.02" />
 
     <TextView
         android:id="@+id/TextViewLoginRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_reg"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -52,95 +53,90 @@
         app:layout_constraintTop_toTopOf="@+id/TextViewLoginLogear" />
 
     <EditText
+        style="@style/EditTextCustom"
+        android:width="330dp"
         android:id="@+id/editTextEmailLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:width="330dp"
         android:background="@drawable/tab_personalizada"
-        android:fontFamily="@font/montserrat_reg"
         android:hint="@string/email"
+        android:textColorHint="#2E2E2E"
+        android:textColor="#2E2E2E"
         android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColorHint="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/TextViewLoginRegistrar"
-        app:layout_constraintStart_toStartOf="@+id/TextViewLoginLogear"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewLoginLogear" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/tab_personalizada"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextEmailLogin"
-        app:layout_constraintStart_toStartOf="@+id/editTextEmailLogin"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogin">
-
-        <EditText
-            android:id="@+id/EditTextLoginPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="9"
-            android:fontFamily="@font/montserrat_reg"
-            android:hint="@string/contrase_a"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColorHint="@color/black"
-            android:textSize="22sp" />
-
-        <ImageButton
-            android:id="@+id/imageButtonOjoLogin"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:contentDescription="@string/ver_password"
-            android:padding="15dp"
-            android:src="@drawable/ic_baseline_visibility_24"
-            app:tint="@color/black" />
-
-
-    </LinearLayout>
+        android:autofillHints="emailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewLoginLogear"
+        app:layout_constraintVertical_bias="0.03" />
 
     <Button
         android:id="@+id/buttonLoginAcceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/montserrat_reg"
         android:padding="30dp"
         android:text="@string/iniciar_sesi_n"
         android:textColor="#1A6A7E"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:cornerRadius="20dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewForgot" />
 
     <TextView
         android:id="@+id/textViewForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/montserrat_reg"
         android:text="@string/olvidado"
         android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/tab_personalizada"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailLogin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogin"
+        app:layout_constraintVertical_bias="0.05">
+
+        <EditText
+            android:id="@+id/EditTextLoginPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="#2E2E2E"
+            android:background="@android:color/transparent"
+            android:ems="12"
+            android:textColor="#2E2E2E"
+            android:hint="@string/contrase_a"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:autofillHints="password" />
+
+        <ImageView
+            android:id="@+id/imageButtonOjoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/ver_password"
+            android:src="@drawable/ic_baseline_visibility_24"
+            app:tint="#494949" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

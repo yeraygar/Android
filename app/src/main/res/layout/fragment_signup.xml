@@ -7,97 +7,46 @@
     android:background="@drawable/signup_gradient_background"
     tools:context=".Signup">
 
+
     <Button
         android:id="@+id/buttonSignupRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/montserrat_reg"
         android:padding="30dp"
         android:text="@string/crear_cuenta"
-        android:textColor="#881CCA"
+        android:textColor="#7C26BA"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:cornerRadius="20dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/tab_personalizada"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextEmailSignup"
-        app:layout_constraintStart_toStartOf="@+id/editTextEmailSignup"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignup">
-
-        <EditText
-            android:id="@+id/EditTextSignupPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:ems="9"
-            android:fontFamily="@font/montserrat_reg"
-            android:hint="@string/contrase_a"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColorHint="@color/black"
-            android:textSize="22sp" />
-
-        <ImageButton
-            android:id="@+id/imageButtonOjoSignUp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:contentDescription="@string/ver_password"
-            android:padding="15dp"
-            android:src="@drawable/ic_baseline_visibility_24"
-            app:tint="@color/black" />
-
-
-    </LinearLayout>
-
-
-    <EditText
-        android:id="@+id/editTextEmailSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:width="330dp"
-        android:background="@drawable/tab_personalizada"
-        android:fontFamily="@font/montserrat_reg"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColorHint="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/TextViewSignUpRegistrar"
-        app:layout_constraintStart_toStartOf="@+id/TextViewSignUpLogear"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewSignUpRegistrar" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/TextViewTituloSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/lobster"
         android:text="@string/collectapp"
         android:textColor="@color/white"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/TextViewSignUpLogear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
-        android:fontFamily="@font/montserrat_reg"
         android:text="@string/log_in"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -114,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat_reg"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -124,11 +72,108 @@
         app:layout_constraintStart_toEndOf="@+id/TextViewSignUpLogear"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTituloSignUp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+    <EditText
+        style="@style/EditTextCustom"
+        android:id="@+id/editTextSignUpNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/tab_personalizada"
+        android:textColorHint="#2E2E2E"
+        android:textColor="#2E2E2E"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:autofillHints="name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/TextViewSignUpRegistrar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/TextViewSignUpLogear"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewSignUpRegistrar"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        style="@style/EditTextCustom"
+        android:width="330dp"
+        android:textColorHint="#2E2E2E"
+        android:textColor="#2E2E2E"
+        android:layout_width="330dp"
+        android:id="@+id/editTextTextSignUpApellidos"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tab_personalizada"
+        android:ems="10"
+        android:hint="@string/apellidos"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:autofillHints="surname"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSignUpNombre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editTextSignUpNombre"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSignUpNombre"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        style="@style/EditTextCustom"
+        android:width="330dp"
+        android:id="@+id/editTextEmailSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tab_personalizada"
+        android:ems="10"
+        android:autofillHints="emailAddress"
+        android:hint="@string/email"
+        android:textColorHint="#2E2E2E"
+        android:textColor="#2E2E2E"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextSignUpApellidos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextSignUpApellidos"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextSignUpApellidos"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tab_personalizada"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailSignup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailSignup"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignup"
+        app:layout_constraintVertical_bias="0.02">
+
+        <EditText
+            android:id="@+id/EditTextSignupPassword"
+            android:layout_width="243dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:hint="@string/contrase_a"
+            android:autofillHints="password"
+            android:inputType="textPassword"
+            android:textColorHint="#2E2E2E"
+            android:textColor="#2E2E2E"
+            android:padding="15dp" />
+
+        <ImageView
+            android:id="@+id/imageButtonOjoSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/ver_password"
+            android:src="@drawable/ic_baseline_visibility_24"
+            app:tint="#494949" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

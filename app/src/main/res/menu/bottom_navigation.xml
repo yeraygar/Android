@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstFragment"
+        android:icon="@drawable/galeria"
+        android:title="@string/colecciones"/>
+    <item
+        android:id="@+id/secondFragment"
+        android:icon="@drawable/usu"
+        android:title="@string/perfil"/>
+</menu>

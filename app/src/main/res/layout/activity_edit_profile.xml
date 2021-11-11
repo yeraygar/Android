@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
+
+    <Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/background_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewBack"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="50dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/editar_perfil"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageViewDone"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_done_24" />
+    </Toolbar>
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/model"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_edittext_editar_perfil"
+            android:padding="3dp"
+            android:text="@string/nombre"
+            android:textColor="#393939" />
+
+        <EditText
+            android:id="@+id/editTextNombreEditarPerfil"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:background="@drawable/borde_edittext_editar_perfil"
+            android:inputType="text"
+            android:labelFor="@id/editTextNombreEditarPerfil"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:text="@string/nombre_usuario"
+            android:textColor="#6A6A6A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_edittext_editar_perfil"
+            android:padding="3dp"
+            android:text="@string/apellidos"
+            android:textColor="#393939" />
+
+        <EditText
+            android:id="@+id/editTextApellidosEditarPerfil"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:background="@drawable/borde_edittext_editar_perfil"
+            android:inputType="text"
+            android:labelFor="@id/editTextNombreEditarPerfil"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:text="@string/apellidos"
+            android:textColor="#6A6A6A" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btn_changePassword"
+        app:layout_constraintEnd_toEndOf="@+id/btn_changePassword"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_changePassword"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_edittext_editar_perfil"
+            android:padding="3dp"
+            android:text="@string/email"
+            android:textColor="#393939" />
+
+        <EditText
+            android:id="@+id/editTextEmailEditarPerfil"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:background="@drawable/borde_edittext_editar_perfil"
+            android:inputType="textEmailAddress"
+            android:labelFor="@id/editTextNombreEditarPerfil"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:text="@string/email"
+            android:textColor="#6A6A6A" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_changePassword"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:height="100dp"
+        android:backgroundTint="#379AC8"
+        android:padding="15dp"
+        android:text="@string/cambiar_contrase_a"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
