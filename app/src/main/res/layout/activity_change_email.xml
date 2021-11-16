@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Changepassword">
+    tools:context=".ChangeEmail">
 
     <Toolbar
         android:id="@+id/toolbar2"
@@ -28,35 +28,37 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cambiar_contrase_a"
+            android:layout_gravity="center_vertical"
+            android:text="@string/verificar_cuenta"
             android:textColor="@color/white"
-            android:textSize="25sp"/>
+            android:textSize="30sp" />
     </Toolbar>
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/introduzca_la_contrase_a_actual"
-        android:textSize="18sp"
+        android:layout_marginTop="80dp"
+        android:text="@string/introduzca_la_contrase_a_para_verificar_su_identidad"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout6"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
         android:background="@drawable/cambiar_pass_fondo"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <EditText
-            android:id="@+id/EditTextOldPassword"
+            android:id="@+id/EditTextPasswordVerificarCuenta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -64,80 +66,28 @@
             android:background="@android:color/transparent"
             android:ems="12"
             android:hint="@string/contrase_a"
-            android:textColorHint="#393939"
-            android:textColor="#393939"
             android:inputType="textPassword"
-            android:padding="15dp" />
-
-    <ImageView
-        android:id="@+id/ImagenVerPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_visibility_24"
-        android:layout_gravity="center"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        app:tint="#494949"
-        android:tag="ver_pass"
-        android:contentDescription="@string/ver_password"
-        android:visibility="invisible"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/introduzca_la_nueva_contrase_a"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/cambiar_pass_fondo"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
-
-        <EditText
-            android:id="@+id/EditTextnewPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:autofillHints="password"
-            android:background="@android:color/transparent"
-            android:ems="12"
-            android:hint="@string/nueva_contrase_a"
+            android:padding="15dp"
             android:textColor="#393939"
-            android:textColorHint="#393939"
-            android:inputType="textPassword"
-            android:padding="15dp" />
+            android:textColorHint="#393939" />
 
         <ImageView
-            android:id="@+id/ImagenverNuevaPass"
+            android:id="@+id/ImagenVerPasswordVerificarCuenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:tag="ver_pass"
             android:contentDescription="@string/ver_password"
             android:src="@drawable/ic_baseline_visibility_24"
-            app:tint="#494949"
-            android:visibility="invisible"/>
+            android:tag="ver_pass"
+            app:tint="#494949" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnAceptar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:backgroundTint="#379AC8"
         android:padding="30dp"
         android:text="@string/aceptar"
@@ -147,8 +97,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.10" />
-
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

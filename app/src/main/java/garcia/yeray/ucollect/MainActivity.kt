@@ -2,6 +2,7 @@ package garcia.yeray.ucollect
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import garcia.yeray.ucollect.databinding.ActivityMainBinding
 
 

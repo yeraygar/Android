@@ -1,8 +1,8 @@
 package garcia.yeray.ucollect
-
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -12,28 +12,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import garcia.yeray.ucollect.databinding.FragmentPerfilBinding
 import garcia.yeray.ucollect.databinding.FragmentSignupBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class Signup : Fragment() {
+    private lateinit var bindingProfile : FragmentPerfilBinding
+    private val storage = Firebase.storage
     private val db = FirebaseFirestore.getInstance()
     private var isPasswordVisible : Boolean = false
     private lateinit var binding: FragmentSignupBinding
     private lateinit var auth : FirebaseAuth
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         //Inflamos el binding
+        bindingProfile = FragmentPerfilBinding.inflate(layoutInflater)
         binding = FragmentSignupBinding.inflate(layoutInflater)
 
         //Configuramos los Eventos de los elementos
@@ -62,16 +72,20 @@ class Signup : Fragment() {
             binding.editTextEmailSignup.error = "Correo no válido"
         }else {
             auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
-                if (task.result?.signInMethods?.size != 0) {
-                    binding.editTextEmailSignup.error = "Ese correo ya está en uso"
-                } else {
-                    if (pass.isEmpty() || pass.isBlank() || pass.length < 6) {
-                        binding.EditTextSignupPassword.error =
-                            "La contraseña debe tener 6 caracteres"
-                        binding.imageButtonOjoSignUp.isVisible = false
+                if(task.isSuccessful) {
+                    if (task.result?.signInMethods?.size != 0) {
+                        binding.editTextEmailSignup.error = "Ese correo ya está en uso"
                     } else {
-                        registrar(email, pass, nombre, apellidos)
+                        if (pass.isEmpty() || pass.isBlank() || pass.length < 6) {
+                            binding.EditTextSignupPassword.error =
+                                "La contraseña debe tener 6 caracteres"
+                            binding.imageButtonOjoSignUp.isVisible = false
+                        } else {
+                            registrar(email, pass, nombre, apellidos)
+                        }
                     }
+                }else{
+                    showAlert()
                 }
             }
         }
@@ -108,8 +122,8 @@ class Signup : Fragment() {
                         if (task.isSuccessful) {
                             Log.d(TAG, "createUserWithEmail:success")
                             //Guardamos datos de Usuario
-                            UserData.saveUserData(nombre,apellido)
-                            startActivity(Intent(activity,Principal::class.java))
+                                UserData.saveUserData(nombre,apellido,"https://firebasestorage.googleapis.com/v0/b/ucollect-20c15.appspot.com/o/images%2Fmodel.png?alt=media&token=0b9fd83a-4bf6-4a89-8fd5-118da75398db")
+                                startActivity(Intent(activity,Principal::class.java))
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)

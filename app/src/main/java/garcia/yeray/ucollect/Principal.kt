@@ -2,7 +2,9 @@ package garcia.yeray.ucollect
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import garcia.yeray.ucollect.databinding.ActivityPrincipalBinding
 
 class Principal() : AppCompatActivity() {

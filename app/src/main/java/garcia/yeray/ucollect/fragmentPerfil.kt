@@ -1,5 +1,6 @@
 package garcia.yeray.ucollect
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +9,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import garcia.yeray.ucollect.databinding.ActivityEditProfileBinding
 import garcia.yeray.ucollect.databinding.FragmentPerfilBinding
 import java.lang.Exception
 import java.lang.StringBuilder
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+
+
+
+
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +35,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private lateinit var auth : FirebaseAuth
 private val db = FirebaseFirestore.getInstance()
+private val storage = Firebase.storage
 
 /**
  * A simple [Fragment] subclass.
@@ -51,19 +64,22 @@ class fragmentPerfil : Fragment() {
         auth = Firebase.auth
         binding = FragmentPerfilBinding.inflate(layoutInflater)
         binding.ImageViewAdd.setOnClickListener {
-            Toast.makeText(activity, "toca imagen", Toast.LENGTH_SHORT).show() }
-        binding.buttonEditarPerfil.setOnClickListener { startActivity(Intent(activity,EditProfile::class.java)) }
+            Toast.makeText(activity, "toca en agregar", Toast.LENGTH_SHORT).show()}
+        binding.buttonEditarPerfil.setOnClickListener { checkAndStartActivity() }
         binding.ImageViewLogOut.setOnClickListener { logOut() }
         val builder = StringBuilder()
         builder.append(UserData.nombre)
         builder.append(" ")
         builder.append(UserData.apellidos)
+        //binding.profileImage.setImageBitmap(UserData.imagenPerfil)
+        Glide.with(this).load(UserData.urlImg).into(binding.profileImage)
         binding.textViewNombre.text = builder.toString()
 
 
         // Inflate the layout for this fragment
         return binding.root
     }
+
 
     companion object {
         /**
@@ -89,5 +105,15 @@ class fragmentPerfil : Fragment() {
             auth.signOut()
             UserData.resetData()
             startActivity(Intent(activity,MainActivity::class.java))
+    }
+
+    private fun checkAndStartActivity() {
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        if(networkInfo != null && networkInfo.isAvailable && networkInfo.isConnected) {
+            startActivity(Intent(activity,EditProfile::class.java))
+        }else{
+            Toast.makeText(activity, "Error de red", Toast.LENGTH_SHORT).show()
+        }
     }
 }

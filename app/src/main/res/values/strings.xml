@@ -39,4 +39,11 @@
     <string name="introduzca_la_nueva_contrase_a">Introduzca la nueva contraseña</string>
     <string name="nueva_contrase_a">Nueva contraseña</string>
     <string name="nombre_usuario">nombre usuario</string>
+    <string name="error_al_actualizar">Error al actualizar</string>
+    <string name="error_al_actualizar_el_perfil_intentelo_de_nuevo">Error al actualizar el perfil, intentelo de nuevo</string>
+    <string name="cambiar_email">Cambiar email</string>
+    <string name="verificar_cuenta">Verificar cuenta</string>
+    <string name="introduzca_la_contrase_a_para_verificar_su_identidad">Introduzca la contraseña para verificar su identidad</string>
+    <string name="cambio_de_correo">Cambio de correo</string>
+    <string name="introduzca_un_nuevo_correo_electronico">Introduzca un nuevo correo electronico</string>
 </resources>

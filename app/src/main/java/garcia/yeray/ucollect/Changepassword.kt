@@ -1,6 +1,8 @@
 package garcia.yeray.ucollect
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -46,31 +48,46 @@ class Changepassword : AppCompatActivity() {
     }
 
     private fun checkValues(password: String, new_password:String) {
-        if(password.isNotEmpty()) {
-            val user = auth.currentUser
-            var credential = EmailAuthProvider.getCredential(user?.email!!,password)
-            user.reauthenticate(credential).addOnCompleteListener { task ->
-                if(task.isSuccessful) {
-                    if(new_password.isNotEmpty() && new_password.length >= 6) {
-                        credential = EmailAuthProvider.getCredential(user?.email!!,new_password)
-                        user.reauthenticate(credential).addOnCompleteListener { task ->
-                            if(task.isSuccessful) {
-                                errorNewPassword("Debe introducir una contraseña distinta")
-                            }else{
-                                cambiarPassword()
+        if (chekConnectionToDb()) {
+            if (password.isNotEmpty()) {
+                val user = auth.currentUser
+                var credential = EmailAuthProvider.getCredential(user?.email!!, password)
+                user.reauthenticate(credential).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        if (new_password.isNotEmpty() && new_password.length >= 6) {
+                            credential =
+                                EmailAuthProvider.getCredential(user?.email!!, new_password)
+                            user.reauthenticate(credential).addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    errorNewPassword("Debe introducir una contraseña distinta")
+                                } else {
+                                    cambiarPassword()
+                                }
                             }
+                        } else {
+                            errorNewPassword("Debe introducir alemnos 6 caracteres")
                         }
-                    }else{
-                        errorNewPassword("Debe introducir alemnos 6 caracteres")
+                    } else {
+                        errorOldPassword("Contraseña incorrecta")
                     }
-                }else{
-                    errorOldPassword("Contraseña incorrecta")
                 }
+            } else {
+                errorOldPassword("Debe introducir un campo")
             }
         }else{
-            errorOldPassword("Debe introducir un campo")
+            Toast.makeText(this, "Error de Red", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    fun chekConnectionToDb() : Boolean{
+        val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        if(networkInfo != null && networkInfo.isAvailable && networkInfo.isConnected) {
+            return true
+        }else{
+            return false
+        }
     }
 
     private fun cambiarPassword() {

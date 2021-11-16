@@ -1,29 +1,43 @@
 package garcia.yeray.ucollect
 
+import android.accounts.NetworkErrorException
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.hardware.SensorManager
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import garcia.yeray.ucollect.databinding.FragmentLoginBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.lang.Exception
-import kotlin.concurrent.thread
+import android.net.NetworkInfo
+
+import androidx.core.content.ContextCompat.getSystemService
+
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.util.Log
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import com.google.firebase.FirebaseNetworkException
+
 
 class Login : Fragment() {
     private lateinit var bindin : FragmentLoginBinding
@@ -61,23 +75,30 @@ class Login : Fragment() {
     }
 
     private fun checkValues(email: String,password: String) {
-       if(email.isEmpty()) {
+        if(email.isEmpty()) {
             errorMail("Debe introducir un campo")
        }else {
             if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 errorMail("Debe introducir un correo válido")
             }else{
-                auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
-                    if(task.result?.signInMethods?.size == 0) {
-                        errorMail("No existe ningún usuario con esa cuenta")
-                    }else{
-                       if(password.isEmpty()) {
-                            errorPass(bindin.imageButtonOjoLogin,"Debe introducir la contraseña")
-                       }else{
-                           acceder(email, password)
-                       }
+                    auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            if (task.result?.signInMethods?.size == 0) {
+                                errorMail("No existe ningún usuario con esa cuenta")
+                            } else {
+                                if (password.isEmpty()) {
+                                    errorPass(
+                                        bindin.imageButtonOjoLogin,
+                                        "Debe introducir la contraseña"
+                                    )
+                                } else {
+                                    acceder(email, password)
+                                }
+                            }
+                        }else {
+                            showAlert()
+                        }
                     }
-                }
             }
        }
     }
@@ -152,4 +173,5 @@ class Login : Fragment() {
         imageView.isVisible = false
         bindin.EditTextLoginPassword.error = mensaje
     }
+
 }

@@ -1,6 +1,8 @@
 package garcia.yeray.ucollect
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,12 +26,36 @@ class FortgotPassword : AppCompatActivity() {
     }
 
     private fun enviarEmail(email :String){
-        if(email.isNotEmpty()) {
-            auth.sendPasswordResetEmail(email).addOnCompleteListener{
-                task -> if(task.isSuccessful) {
-                Toast.makeText(this, "Revise su Email para cambiar la contraseña", Toast.LENGTH_SHORT).show()
+        if (chekConnectionToDb()) {
+            if (email.isEmpty() || email.isBlank()) {
+                binding.editTextEmailForgot.error = "Debe introducir un email"
+            } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.editTextEmailForgot.error = "Debe introducir un correo válido"
+            } else {
+                val auth = Firebase.auth
+                auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
+                    if (task.result?.signInMethods?.size != 0) {
+                        auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                            if (task.isSuccessful) {Toast.makeText(this,"Revise su Email para cambiar la contraseña",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        binding.editTextEmailForgot.error = "No existe ningún correo con esa cuenta"
+                    }
                 }
             }
+        }else{
+            Toast.makeText(this, "Error de red", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun chekConnectionToDb() : Boolean{
+        val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        if(networkInfo != null && networkInfo.isAvailable && networkInfo.isConnected) {
+            return true
+        }else{
+            return false
         }
     }
 }

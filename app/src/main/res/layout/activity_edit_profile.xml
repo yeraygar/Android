@@ -43,11 +43,13 @@
             android:src="@drawable/ic_baseline_done_24" />
     </Toolbar>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/model"
+        app:civ_border_color="#B1DEFF"
+        app:civ_border_width="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -62,9 +64,9 @@
         android:background="@null"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image">
 
         <TextView
@@ -97,9 +99,9 @@
         android:background="@null"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
@@ -131,10 +133,10 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_changePassword"
-        app:layout_constraintEnd_toEndOf="@+id/btn_changePassword"
+        app:layout_constraintBottom_toTopOf="@+id/btn_changeEmail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btn_changePassword"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <TextView
@@ -161,21 +163,39 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_changeEmail"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:height="80dp"
+        android:backgroundTint="#379AC8"
+        android:padding="15dp"
+        android:text="@string/cambiar_email"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_changePassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+    <Button
         android:id="@+id/btn_changePassword"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:height="100dp"
-        android:backgroundTint="#379AC8"
+        android:height="80dp"
+        android:backgroundTint="#374FC8"
         android:padding="15dp"
         android:text="@string/cambiar_contrase_a"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_changeEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
