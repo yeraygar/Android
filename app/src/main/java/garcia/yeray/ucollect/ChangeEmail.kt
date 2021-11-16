@@ -23,7 +23,7 @@ class ChangeEmail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChangeEmailBinding.inflate(layoutInflater)
         binding.ImagenVerPasswordVerificarCuenta.isVisible = false
-        binding.imageViewBack.setOnClickListener { startActivity(Intent(this,EditProfile::class.java))}
+        binding.imageViewBack.setOnClickListener { onBackPressed()}
         binding.ImagenVerPasswordVerificarCuenta.setOnClickListener { changeVisibilityMode(binding.ImagenVerPasswordVerificarCuenta,binding.EditTextPasswordVerificarCuenta)}
         binding.EditTextPasswordVerificarCuenta.doAfterTextChanged { cambiarEstadoImageButton(binding.ImagenVerPasswordVerificarCuenta,binding.EditTextPasswordVerificarCuenta.text.toString())}
         binding.btnAceptar.setOnClickListener { nextView(binding.EditTextPasswordVerificarCuenta) }

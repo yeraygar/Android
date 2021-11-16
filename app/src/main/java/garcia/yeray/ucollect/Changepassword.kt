@@ -28,7 +28,7 @@ class Changepassword : AppCompatActivity() {
         binding.ImagenVerPassword.setOnClickListener { changeVisibilityMode(binding.ImagenVerPassword,binding.EditTextOldPassword) }
         binding.ImagenverNuevaPass.setOnClickListener { changeVisibilityMode(binding.ImagenverNuevaPass,binding.EditTextnewPassword) }
         binding.btnAceptar.setOnClickListener { checkValues(binding.EditTextOldPassword.text.toString(),binding.EditTextnewPassword.text.toString()) }
-        binding.imageViewBack.setOnClickListener { startActivity(Intent(this,EditProfile::class.java)) }
+        binding.imageViewBack.setOnClickListener { onBackPressed()}
         binding.EditTextOldPassword.doAfterTextChanged { cambiarEstadoImageButton(binding.ImagenVerPassword,binding.EditTextOldPassword.text.toString())}
         binding.EditTextnewPassword.doAfterTextChanged { cambiarEstadoImageButton(binding.ImagenverNuevaPass,binding.EditTextnewPassword.text.toString()) }
         setContentView(binding.root)

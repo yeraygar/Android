@@ -46,4 +46,16 @@
     <string name="introduzca_la_contrase_a_para_verificar_su_identidad">Introduzca la contraseña para verificar su identidad</string>
     <string name="cambio_de_correo">Cambio de correo</string>
     <string name="introduzca_un_nuevo_correo_electronico">Introduzca un nuevo correo electronico</string>
+    <string name="agregar_objeto">Agregar objeto</string>
+    <string name="nombre_del_objeto">Nombre del objeto</string>
+    <string name="selecciona_una_imagen">Selecciona una imagen</string>
+    <string name="tipo_de_coleccionable">Tipo de coleccionable</string>
+    <string name="tipo">Tipo</string>
+    <string name="precio">Precio</string>
+    <string name="precio_del_objeto">Precio del objeto</string>
+    <string name="intercambio">Intercambio</string>
+    <string-array name="spinne_intercambio">
+        <item>Aceptar intercambio</item>
+        <item>Denegar intercambio</item>
+    </string-array>
 </resources>

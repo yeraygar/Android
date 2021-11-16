@@ -20,7 +20,7 @@ class ChangeEmailVerified : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChangeEmailVerifiedBinding.inflate(layoutInflater)
-        binding.imageViewBack.setOnClickListener { startActivity(Intent(this,ChangeEmail::class.java))}
+        binding.imageViewBack.setOnClickListener { onBackPressed()}
         binding.btnAceptar.setOnClickListener { chekConnectionToDb() }
         setContentView(binding.root)
     }

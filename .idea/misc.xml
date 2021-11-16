@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable-anydpi/arrow_down.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/background_add_collection.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/background_toolbar.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/backpers.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/borde_edittext_editar_perfil.xml" value="0.3828125" />
@@ -21,10 +23,12 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/imagenperfil.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/login_gradient_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/signup_gradient_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/spinner_style.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/tab_personalizada.xml" value="0.2675925925925926" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/textinputlayout_hintcolor_selector.xml" value="0.25729166666666664" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_add_collection.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_change_email.xml" value="0.33" />
-        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_change_email_verified.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_change_email_verified.xml" value="0.22" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_changepassword.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_edit_profile.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_fortgot_password.xml" value="0.2609375" />
@@ -44,6 +48,8 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/layout_error_actualizar_perfil.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/nuevo.xml" value="0.3234375" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/prueba.xml" value="0.3234375" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/spinner_item.xml" value="0.3625" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/spinner_item_intercambio.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/bottom_nav_menu.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/bottom_navigation.xml" value="0.26458333333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/menu_main.xml" value="0.2520833333333333" />

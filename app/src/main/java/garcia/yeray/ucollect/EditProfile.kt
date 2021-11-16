@@ -27,6 +27,7 @@ class EditProfile : AppCompatActivity() {
             if(intent.data?.extras?.get("data") != null) {
                 binding.profileImage.setImageBitmap(intent.data?.extras?.get("data") as Bitmap)
                 val bitmap = intent.data?.extras?.get("data") as Bitmap
+                UserData.bitmapImg = bitmap
                 val baos = ByteArrayOutputStream()
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                 val data = baos.toByteArray()
@@ -38,7 +39,7 @@ class EditProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
-        binding.imageViewBack.setOnClickListener { preparaIntent() }
+        binding.imageViewBack.setOnClickListener { onBackPressed() }
         binding.imageViewDone.setOnClickListener { checkValues() }
         binding.btnChangePassword.setOnClickListener { startActivity(Intent(this,Changepassword::class.java)) }
         binding.editTextNombreEditarPerfil.setText(UserData.nombre)
@@ -53,14 +54,15 @@ class EditProfile : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private fun preparaIntent(){
+    /*private fun preparaIntent(){
         val intent = Intent(this,Principal::class.java)
         val bundle = Bundle()
         bundle.putString("tipo","perfil")
         intent.putExtras(bundle)
         startActivity(intent)
         finish()
-    }
+    }*/
+
     
     private fun checkValues() {
         val nombre = binding.editTextNombreEditarPerfil

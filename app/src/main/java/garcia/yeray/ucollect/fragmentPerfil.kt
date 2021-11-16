@@ -2,6 +2,7 @@ package garcia.yeray.ucollect
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,8 +64,7 @@ class fragmentPerfil : Fragment() {
     ): View? {
         auth = Firebase.auth
         binding = FragmentPerfilBinding.inflate(layoutInflater)
-        binding.ImageViewAdd.setOnClickListener {
-            Toast.makeText(activity, "toca en agregar", Toast.LENGTH_SHORT).show()}
+        binding.ImageViewAdd.setOnClickListener {startActivity(Intent(activity,AddCollection::class.java))}
         binding.buttonEditarPerfil.setOnClickListener { checkAndStartActivity() }
         binding.ImageViewLogOut.setOnClickListener { logOut() }
         val builder = StringBuilder()
@@ -73,6 +73,8 @@ class fragmentPerfil : Fragment() {
         builder.append(UserData.apellidos)
         //binding.profileImage.setImageBitmap(UserData.imagenPerfil)
         Glide.with(this).load(UserData.urlImg).into(binding.profileImage)
+
+
         binding.textViewNombre.text = builder.toString()
 
 

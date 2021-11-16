@@ -1,5 +1,6 @@
 package garcia.yeray.ucollect
 
+import android.graphics.Bitmap
 import com.google.firebase.auth.EmailAuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -12,7 +13,7 @@ import com.google.firebase.storage.ktx.storage
 class UserData {
 
     companion object{
-        val storage = Firebase.storage
+        private val storage = Firebase.storage
         var auth :FirebaseAuth? = null
         var user : FirebaseUser? = null
         var email : String? = null
@@ -21,6 +22,7 @@ class UserData {
         var apellidos : String? = null
         var urlImg : String? = null
         var data : ByteArray? = null
+        var bitmapImg : Bitmap? = null
         lateinit var userPassword : String
 
 
