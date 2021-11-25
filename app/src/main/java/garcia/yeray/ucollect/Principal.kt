@@ -57,7 +57,16 @@ class Principal() : AppCompatActivity() {
         setContentView(binding.root)
     }
 
+    override fun onBackPressed() {
+        if (binding.bottomNavigation.selectedItemId == R.id.secondFragment) {
+            binding.bottomNavigation.selectedItemId = R.id.firstFragment
+        }else {
+            finish()
+        }
+    }
+
     private fun loadFragment(fragment : Fragment) {
+        val extras = intent.extras
       val transaction =  supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame_container,fragment)
         transaction.commit()

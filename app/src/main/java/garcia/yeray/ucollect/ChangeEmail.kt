@@ -39,6 +39,7 @@ class ChangeEmail : AppCompatActivity() {
                     if (task.isSuccessful) {
                         UserData.userPassword = password.text.toString()
                         startActivity(Intent(this,ChangeEmailVerified::class.java))
+                        finish()
                     }else{
                         binding.EditTextPasswordVerificarCuenta.error = "Contraseña incorrecta"
                         binding.ImagenVerPasswordVerificarCuenta.isVisible = false

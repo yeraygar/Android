@@ -37,6 +37,7 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import com.google.firebase.FirebaseNetworkException
+import kotlinx.coroutines.delay
 
 
 class Login : Fragment() {
@@ -106,7 +107,11 @@ class Login : Fragment() {
     private fun reload() {
         //Guardamos los datos de este usuario
         UserData.restoreUserData()
+        UserCollections.asignarObjetosLista() //Colecciones del usuario
+        Collections.asignarObjetosLista()
+        Log.d("lista", UserCollections.objetos.size.toString())
         startActivity(Intent(activity,Principal::class.java))
+        requireActivity().finish()
     }
 
     private fun acceder(email : String, password: String){

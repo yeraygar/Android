@@ -123,6 +123,7 @@ class Signup : Fragment() {
                             Log.d(TAG, "createUserWithEmail:success")
                             //Guardamos datos de Usuario
                                 UserData.saveUserData(nombre,apellido,"https://firebasestorage.googleapis.com/v0/b/ucollect-20c15.appspot.com/o/images%2Fmodel.png?alt=media&token=0b9fd83a-4bf6-4a89-8fd5-118da75398db")
+                                Collections.asignarObjetosLista()
                                 startActivity(Intent(activity,Principal::class.java))
                         } else {
                             // If sign in fails, display a message to the user.

@@ -54,6 +54,8 @@
     <string name="precio">Precio</string>
     <string name="precio_del_objeto">Precio del objeto</string>
     <string name="intercambio">Intercambio</string>
+    <string name="informaci_n">Información</string>
+    <string name="guardar">Guardar</string>
     <string-array name="spinne_intercambio">
         <item>Aceptar intercambio</item>
         <item>Denegar intercambio</item>

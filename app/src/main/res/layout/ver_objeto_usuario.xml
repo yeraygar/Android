@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentColecciones">
+    android:layout_height="match_parent">
 
     <Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/background_toolbar"
@@ -15,22 +13,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageViewBack"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lobster"
-            android:text="@string/collectapp"
+            android:layout_gravity="center_vertical"
+            android:text="Información"
             android:textColor="@color/white"
             android:textSize="30sp" />
-
     </Toolbar>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewColecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="60dp"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

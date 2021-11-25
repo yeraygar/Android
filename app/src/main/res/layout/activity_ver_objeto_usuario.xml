@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCollection">
+    tools:context=".VerObjetoUsuario">
 
     <Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/background_toolbar"
@@ -21,7 +21,7 @@
             android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="18dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="50dp"
             android:contentDescription="@string/back"
             android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
@@ -29,21 +29,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/agregar_objeto"
+            android:text="@string/informaci_n"
             android:textColor="@color/white"
             android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageViewDelete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_delete_24" />
     </Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAceptar"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+        app:layout_constraintTop_toBottomOf="@+id/objectImage">
 
         <TextView
             android:id="@+id/textView13"
@@ -145,12 +153,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btnAceptar"
+        android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#379AC8"
         android:padding="15dp"
-        android:text="@string/aceptar"
+        android:text="@string/guardar"
         android:textSize="20sp"
         android:textStyle="bold"
         app:cornerRadius="5dp"
@@ -160,33 +168,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="vertical"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/objectImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/model"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ImageViewObject"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/model"
-            app:civ_border_color="#B1DEFF"
-            app:civ_border_width="3dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/selecciona_una_imagen"
-            android:textSize="19sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

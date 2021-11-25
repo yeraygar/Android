@@ -1,5 +1,6 @@
 package garcia.yeray.ucollect
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -48,6 +49,10 @@ class Changepassword : AppCompatActivity() {
     }
 
     private fun checkValues(password: String, new_password:String) {
+        val progresDialog = ProgressDialog(this)
+        progresDialog.setMessage("Actualizando...")
+        progresDialog.setCancelable(false)
+        progresDialog.show()
         if (chekConnectionToDb()) {
             if (password.isNotEmpty()) {
                 val user = auth.currentUser
@@ -62,6 +67,7 @@ class Changepassword : AppCompatActivity() {
                                     errorNewPassword("Debe introducir una contraseña distinta")
                                 } else {
                                     cambiarPassword()
+                                    if (progresDialog.isShowing) progresDialog.dismiss()
                                 }
                             }
                         } else {

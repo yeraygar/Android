@@ -1,5 +1,6 @@
 package garcia.yeray.ucollect
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -19,7 +20,7 @@ class FortgotPassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFortgotPasswordBinding.inflate(layoutInflater)
-        binding.imageViewAtras.setOnClickListener{this.startActivity(Intent(this,MainActivity::class.java))}
+        binding.imageViewAtras.setOnClickListener{ onBackPressed() }
         binding.buttonEnviarForgot.setOnClickListener { enviarEmail(binding.editTextEmailForgot.text.toString()) }
         auth = Firebase.auth
         setContentView(binding.root)
@@ -32,11 +33,17 @@ class FortgotPassword : AppCompatActivity() {
             } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.editTextEmailForgot.error = "Debe introducir un correo válido"
             } else {
+                val progresDialog = ProgressDialog(this)
+                progresDialog.setMessage("Actualizando...")
+                progresDialog.setCancelable(false)
+                progresDialog.show()
                 val auth = Firebase.auth
                 auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
                     if (task.result?.signInMethods?.size != 0) {
                         auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-                            if (task.isSuccessful) {Toast.makeText(this,"Revise su Email para cambiar la contraseña",Toast.LENGTH_SHORT).show()
+                            if (task.isSuccessful) {
+                                if (progresDialog.isShowing) progresDialog.dismiss()
+                                Toast.makeText(this,"Revise su Email para cambiar la contraseña",Toast.LENGTH_SHORT).show()
                             }
                         }
                     } else {

@@ -22,6 +22,7 @@ class UserData {
         var apellidos : String? = null
         var urlImg : String? = null
         var data : ByteArray? = null
+        var dataFragmentPerfil : ByteArray? = null
         var bitmapImg : Bitmap? = null
         lateinit var userPassword : String
 
@@ -37,6 +38,10 @@ class UserData {
             db = FirebaseFirestore.getInstance()
             db?.collection("user")?.document(email!!)?.set(hashMapOf("nombre" to nombre,"apellidos" to apellidos,"urlImagen" to urlImg))
             urlImg = url
+            data = null
+            dataFragmentPerfil = null
+            bitmapImg = null
+            Collections.asignarObjetosLista()
             //Guardar imagen default
         }
 
@@ -48,25 +53,6 @@ class UserData {
         fun changeLastName(ape:String){
             apellidos = ape
             db?.collection("user")?.document(email!!)?.update("apellidos", apellidos)
-        }
-
-        fun changeMail(mail:String){
-            val credencial = EmailAuthProvider.getCredential(email!!, userPassword)
-            user!!.reauthenticate(credencial).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    user = auth!!.currentUser
-                    user!!.updateEmail(mail).addOnCompleteListener {
-                        if (task.isSuccessful) {
-                            db?.collection("users")?.document(email!!)?.delete()?.addOnCompleteListener {
-                                email = user!!.email
-                                saveUserData(nombre!!, apellidos!!, urlImg!!)
-                            }
-                            email = mail
-
-                        }
-                    }
-                }
-            }
         }
 
         fun uploadImage(data : ByteArray) {
@@ -95,6 +81,7 @@ class UserData {
                     nombre = it.get("nombre").toString()
                     apellidos = it.get("apellidos").toString()
                     urlImg = it.get("urlImagen").toString()
+                    //Collections.asignarObjetosLista()
                 }
             }
         }

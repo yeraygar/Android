@@ -1,11 +1,16 @@
 package garcia.yeray.ucollect
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import garcia.yeray.ucollect.databinding.FragmentColeccionesBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +26,7 @@ class FragmentColecciones : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding : FragmentColeccionesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +41,18 @@ class FragmentColecciones : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_colecciones, container, false)
+        binding = FragmentColeccionesBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initRecycler()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initRecycler()
     }
 
     companion object {
@@ -56,5 +73,11 @@ class FragmentColecciones : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun initRecycler() {
+        binding.recyclerViewColecciones.layoutManager = LinearLayoutManager(activity)
+        val adapter = ObjetoAdapterCollections(Collections.objetos)
+        binding.recyclerViewColecciones.adapter = adapter
     }
 }

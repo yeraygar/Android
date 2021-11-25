@@ -1,13 +1,10 @@
 package garcia.yeray.ucollect
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import garcia.yeray.ucollect.databinding.ActivityEditProfileBinding
@@ -16,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.io.ByteArrayOutputStream
-import kotlin.Exception
 
 
 class EditProfile : AppCompatActivity() {
@@ -39,7 +35,7 @@ class EditProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
-        binding.imageViewBack.setOnClickListener { onBackPressed() }
+        binding.imageViewBack.setOnClickListener { returnIntent()}
         binding.imageViewDone.setOnClickListener { checkValues() }
         binding.btnChangePassword.setOnClickListener { startActivity(Intent(this,Changepassword::class.java)) }
         binding.editTextNombreEditarPerfil.setText(UserData.nombre)
@@ -54,16 +50,20 @@ class EditProfile : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    /*private fun preparaIntent(){
-        val intent = Intent(this,Principal::class.java)
-        val bundle = Bundle()
-        bundle.putString("tipo","perfil")
-        intent.putExtras(bundle)
-        startActivity(intent)
-        finish()
-    }*/
+    override fun onResume() {
+        super.onResume()
+        binding.editTextNombreEditarPerfil.setText(UserData.nombre)
+        binding.editTextApellidosEditarPerfil.setText(UserData.apellidos)
+        binding.editTextEmailEditarPerfil.setText(UserData.email)
+    }
 
-    
+    private fun returnIntent() {
+        val intent = Intent()
+        intent.putExtra("bitmap",UserData.dataFragmentPerfil)
+        setResult(RESULT_OK,intent)
+        finish()
+    }
+
     private fun checkValues() {
         val nombre = binding.editTextNombreEditarPerfil
         val apellidos = binding.editTextApellidosEditarPerfil
@@ -84,6 +84,7 @@ class EditProfile : AppCompatActivity() {
     private fun actualizarPerfil(nombre : String, apellidos : String) {
         if (UserData.data != null) {
             UserData.uploadImage(UserData.data!!)
+            UserData.dataFragmentPerfil = UserData.data
         }
 
         if (nombre != UserData.nombre) {

@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable-anydpi/arrow_down.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/background_add_collection.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/background_mis_objetos.xml" value="0.5" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/background_toolbar.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/backpers.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/borde_edittext_editar_perfil.xml" value="0.3828125" />
@@ -21,6 +22,10 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/imagenperfil.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/item_border_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/item_image_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/loading.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/loading_animation.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/login_gradient_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/signup_gradient_background.xml" value="0.3828125" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/drawable/spinner_style.xml" value="0.3828125" />
@@ -36,6 +41,8 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_principal.xml" value="0.25" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_principal_bottom_nav.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_ver_objeto_usuario.xml" value="0.33" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_ver_objetos.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/error_inicio_sesion.xml" value="0.67" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/error_registro_layout.xml" value="0.67" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_colecciones.xml" value="0.34270833333333334" />
@@ -43,13 +50,17 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_home.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_notifications.xml" value="0.34270833333333334" />
-        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_perfil.xml" value="0.25" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_signup.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/layout_error_actualizar_perfil.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/nuevo.xml" value="0.3234375" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/prueba.xml" value="0.3234375" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/spinner_item.xml" value="0.3625" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/spinner_item_intercambio.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/ver_objeto_usuario.xml" value="0.26875" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/vista_objeto_coleccion.xml" value="0.33" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/vista_objeto_colecciones.xml" value="0.2875" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/vista_objetos_colecciones.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/bottom_nav_menu.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/bottom_navigation.xml" value="0.26458333333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/menu/menu_main.xml" value="0.2520833333333333" />
