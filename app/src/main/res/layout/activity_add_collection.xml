@@ -177,9 +177,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:src="@drawable/model"
-            app:civ_border_color="#B1DEFF"
-            app:civ_border_width="3dp" />
+            android:adjustViewBounds="false"
+            android:cropToPadding="true"
+            android:src="@drawable/camara_azul" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -42,7 +42,7 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_principal_bottom_nav.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_ver_objeto_usuario.xml" value="0.33" />
-        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_ver_objetos.xml" value="0.33" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/activity_ver_objetos.xml" value="0.25" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/error_inicio_sesion.xml" value="0.67" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/error_registro_layout.xml" value="0.67" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_colecciones.xml" value="0.34270833333333334" />
@@ -50,7 +50,7 @@
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_home.xml" value="0.34270833333333334" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_notifications.xml" value="0.34270833333333334" />
-        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_perfil.xml" value="0.25" />
+        <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/fragment_signup.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/layout_error_actualizar_perfil.xml" value="0.33" />
         <entry key="..\:/Users/Yeray/AndroidStudioProjects/Ucollect/app/src/main/res/layout/nuevo.xml" value="0.3234375" />

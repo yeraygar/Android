@@ -54,44 +54,71 @@ class ChangeEmailVerified : AppCompatActivity() {
                                 UserData.user!!.updateEmail(binding.editTextEmailCambioCorreo.text.toString()).addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
 
-                                        //Obtener la imagen del usuario.
+                                        //reautenticamos al usuario
+                                        val credentials = EmailAuthProvider.getCredential(binding.editTextEmailCambioCorreo.text.toString(),UserData.userPassword)
+                                        UserData.user!!.reauthenticate(credentials).addOnCompleteListener {
+
+                                            //Obtener la imagen del usuario.
                                             //Si hay data, es decir, que el usuario no tenga la foto por defecto entra a la condición.
-                                         if (UserData.data != null) {
-                                             //Obtenemos la referencia de la imagen actual y la borramos.
-                                             val reference = Firebase.storage.getReferenceFromUrl(UserData.urlImg!!)
-                                             reference.delete()
+                                            val oldUser = UserData.email!!
+                                            if (UserData.data != null) {
 
-                                             //Obtenemos el nuevo email del usuario.
-                                             val userNewEmail = Firebase.auth.currentUser!!.email
+                                                //Obtenemos el nuevo email del usuario.
+                                                val userNewEmail = UserData.user!!.email //Firebase.auth.currentUser!!.email
 
-                                            //Guardamos la imagen con el nuevo correo, de esta manera, el usuario solo tendrá 1 foto, y no se creara una foto nueva en el firestore si cambiamos el Correo.
-                                             val newReference = Firebase.storage.reference.child("images/"+userNewEmail+"profilePic")
-                                             newReference.putBytes(UserData.data!!).addOnSuccessListener {
-                                                 newReference.downloadUrl.addOnCompleteListener { task ->
-                                                     if (task.isSuccessful) {
-                                                         UserData.urlImg = task.result.toString()
-                                                     }
-                                                 }
-                                             }
-                                         }
-                                        val oldUser = UserData.email!!
-                                        Toast.makeText(this, "Correo actualizado", Toast.LENGTH_SHORT).show()
-                                        UserData.db?.collection("user")?.document(UserData.email!!)?.delete()
-                                        UserData.saveUserData(UserData.nombre!!,UserData.apellidos!!,UserData.urlImg!!)
-                                        //Comprobar todas las colecciones que tiene el usuario actual, y por cada coleccion cambiar el correo electronico anterior al actual
-                                        val bd = Firebase.firestore
-                                        bd.collection("collection").whereEqualTo("userEmail", oldUser).get().addOnSuccessListener { task ->
-                                            if (task != null) {
-                                                val documents = task.documents
-                                                for (document in documents) {
-                                                    bd.collection("collection")
-                                                        .document(document.id)
-                                                        .update("userEmail", UserData.user!!.email)
-                                                }
+                                                //Guardamos la imagen con el nuevo correo, de esta manera, el usuario solo tendrá 1 foto, y no se creara una foto nueva en el firestore si cambiamos el Correo.
+                                                val reference = Firebase.storage.getReferenceFromUrl(UserData.urlImg!!)
+
+                                                val newReference = Firebase.storage.reference.child("images/" + userNewEmail + "profilePic")
+                                                newReference.putBytes(UserData.data!!).addOnSuccessListener {
+                                                        newReference.downloadUrl.addOnCompleteListener { task ->
+                                                            if (task.isSuccessful) {
+                                                                UserData.urlImg = task.result.toString()
+                                                                Toast.makeText(
+                                                                    this,
+                                                                    "Correo actualizado",
+                                                                    Toast.LENGTH_SHORT
+                                                                ).show()
+                                                                UserData.db?.collection("user")
+                                                                    ?.document(UserData.email!!)?.delete()
+                                                                UserData.saveUserData(
+                                                                    UserData.nombre!!,
+                                                                    UserData.apellidos!!,
+                                                                    UserData.urlImg!!
+                                                                )
+                                                            }
+                                                            reference.delete()
+                                                        }
+                                                    }
                                             }
-                                            UserCollections.asignarObjetosLista()
-                                            if (progresDialog.isShowing) progresDialog.dismiss()
-                                            onBackPressed()
+                                            UserData.db?.collection("user")
+                                                ?.document(UserData.email!!)?.delete()
+                                            UserData.saveUserData(
+                                                UserData.nombre!!,
+                                                UserData.apellidos!!,
+                                                UserData.urlImg!!
+                                            )
+
+                                            //Comprobar todas las colecciones que tiene el usuario actual, y por cada coleccion cambiar el correo electronico anterior al actual
+                                            val bd = Firebase.firestore
+                                            bd.collection("collection")
+                                                .whereEqualTo("userEmail", oldUser).get()
+                                                .addOnSuccessListener { task ->
+                                                    if (task != null) {
+                                                        val documents = task.documents
+                                                        for (document in documents) {
+                                                            bd.collection("collection")
+                                                                .document(document.id)
+                                                                .update(
+                                                                    "userEmail",
+                                                                    UserData.user!!.email
+                                                                )
+                                                        }
+                                                    }
+                                                    UserCollections.asignarObjetosLista()
+                                                    if (progresDialog.isShowing) progresDialog.dismiss()
+                                                    onBackPressed()
+                                                }
                                         }
                                     }else {
                                         Toast.makeText(this, "Error al cambiar el correo", Toast.LENGTH_SHORT).show()

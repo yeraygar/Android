@@ -13,7 +13,6 @@
         android:id="@+id/imagenObjeto"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="10dp"
         android:padding="10dp"
         android:src="@drawable/model"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,15 +21,15 @@
 
     <TextView
         android:id="@+id/nombreObjeto"
+        android:singleLine="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nombre_del_objeto"
-        android:textColor="#1D67D6"
+        android:textColor="#379AC8"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.20"
         app:layout_constraintStart_toEndOf="@+id/imagenObjeto"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

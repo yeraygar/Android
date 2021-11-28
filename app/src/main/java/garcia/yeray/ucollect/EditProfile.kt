@@ -18,16 +18,18 @@ import java.io.ByteArrayOutputStream
 class EditProfile : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private lateinit var binding: ActivityEditProfileBinding
+    private var data : ByteArray? = null
+    private var bitmap : Bitmap? = null
     private  val getResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ intent ->
             if(intent.data?.extras?.get("data") != null) {
                 binding.profileImage.setImageBitmap(intent.data?.extras?.get("data") as Bitmap)
-                val bitmap = intent.data?.extras?.get("data") as Bitmap
-                UserData.bitmapImg = bitmap
+                bitmap = intent.data?.extras?.get("data") as Bitmap
+                //UserData.bitmapImg = bitmap
                 val baos = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-                val data = baos.toByteArray()
-                UserData.data = data
+                bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                data = baos.toByteArray()
+                //UserData.data = data
             }
         }
 
@@ -54,7 +56,7 @@ class EditProfile : AppCompatActivity() {
         super.onResume()
         binding.editTextNombreEditarPerfil.setText(UserData.nombre)
         binding.editTextApellidosEditarPerfil.setText(UserData.apellidos)
-        binding.editTextEmailEditarPerfil.setText(UserData.email)
+        binding.editTextEmailEditarPerfil.setText(UserData.user!!.email)
     }
 
     private fun returnIntent() {
@@ -82,9 +84,12 @@ class EditProfile : AppCompatActivity() {
     }
     
     private fun actualizarPerfil(nombre : String, apellidos : String) {
-        if (UserData.data != null) {
+        if (data != null) {
+            UserData.bitmapImg = bitmap
+            UserData.data = data
             UserData.uploadImage(UserData.data!!)
             UserData.dataFragmentPerfil = UserData.data
+
         }
 
         if (nombre != UserData.nombre) {

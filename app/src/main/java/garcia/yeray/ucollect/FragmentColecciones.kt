@@ -8,9 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.protobuf.Value
 import garcia.yeray.ucollect.databinding.FragmentColeccionesBinding
+import org.w3c.dom.Document
+import kotlin.math.log
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,10 @@ class FragmentColecciones : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+   private lateinit var recyclerview : RecyclerView
+   private lateinit var coleccionesArray : ArrayList<Objeto>
+   private lateinit var myAdapter : ObjetoAdapterCollections
+   private lateinit var db : FirebaseFirestore
     private lateinit var binding : FragmentColeccionesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,17 +51,41 @@ class FragmentColecciones : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentColeccionesBinding.inflate(layoutInflater)
+        recyclerview = binding.recyclerViewColecciones
+        recyclerview.layoutManager = LinearLayoutManager(activity)
+        recyclerview.setHasFixedSize(true)
+        coleccionesArray = arrayListOf()
+        myAdapter = ObjetoAdapterCollections(coleccionesArray)
+        recyclerview.adapter = myAdapter
+        EventChangeListener()
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        initRecycler()
-    }
+    private fun EventChangeListener() {
+        db = FirebaseFirestore.getInstance()
+        db.collection("collection").whereNotEqualTo("userEmail", UserData.email!!).addSnapshotListener(
+            object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                    if (error != null) {
+                        Log.e("Firebase Error",error.message.toString())
+                        return
+                    }
+                    for (dc : DocumentChange in value?.documentChanges!!) {
+                        if (dc.type == DocumentChange.Type.ADDED) {
+                            val urlImg = dc.document.get("urlImagen")
+                            val nombre = dc.document.get("nombreObjeto")
+                            val tipo = dc.document.get("tipoObjeto")
+                            val precio = dc.document.get("precioObjeto")
+                            val intercambio = dc.document.get("intercambioObjeto")
+                            val userEmail = dc.document.get("userEmail")
+                            coleccionesArray.add(Objeto(urlImg.toString(),nombre.toString(),tipo.toString(),precio.toString(),intercambio.toString(),dc.document.id,userEmail.toString()))
+                        }
+                    }
+                    myAdapter.notifyDataSetChanged()
+                }
 
-    override fun onResume() {
-        super.onResume()
-        initRecycler()
+            }
+        )
     }
 
     companion object {
@@ -75,9 +108,4 @@ class FragmentColecciones : Fragment() {
             }
     }
 
-    private fun initRecycler() {
-        binding.recyclerViewColecciones.layoutManager = LinearLayoutManager(activity)
-        val adapter = ObjetoAdapterCollections(Collections.objetos)
-        binding.recyclerViewColecciones.adapter = adapter
-    }
 }

@@ -27,14 +27,15 @@ class ObjetoAdapterCollections(private val objeto : List<Objeto>): RecyclerView.
         fun render(objeto : Objeto) {
             val imagen = view.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.imagenObjeto)
             val titulo = view.findViewById<TextView>(R.id.tituloObjeto)
-            val tipo = view.findViewById<TextView>(R.id.tipoObjeto)
-            val precio = view.findViewById<TextView>(R.id.precioObjeto)
             val emailUser = view.findViewById<TextView>(R.id.usuarioEmail)
-            titulo.text = objeto.nombre
+            if(objeto.nombre.length > 21) {
+                titulo.text = objeto.nombre.substring(0,17) + "..."
+            }else {
+                titulo.text = objeto.nombre
+            }
             Glide.with(view).load(objeto.UrlImg).into(imagen)
-            tipo.text = objeto.tipo
-            precio.text = objeto.precio
             emailUser.text = objeto.User
+            emailUser.isSelected = true
             view.setOnClickListener {
                 val intent = Intent(view.context,verObjetos::class.java)
                 intent.putExtra("urlImg",objeto.UrlImg)

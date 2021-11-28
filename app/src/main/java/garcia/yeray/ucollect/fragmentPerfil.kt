@@ -66,7 +66,7 @@ class fragmentPerfil : Fragment() {
         builder.append(UserData.nombre)
         builder.append(" ")
         builder.append(UserData.apellidos)
-        if(UserData.bitmapImg == null) {
+        if(UserData.data == null) {
             Glide.with(this).load(UserData.urlImg).into(binding.profileImage)
         }else{
             binding.profileImage.setImageBitmap(UserData.bitmapImg)
@@ -89,6 +89,16 @@ class fragmentPerfil : Fragment() {
         super.onResume()
         Log.d("objetos_perfil",UserCollections.objetos.size.toString())
         initRecycler()
+        if(UserData.bitmapImg == null) {
+            Glide.with(this).load(UserData.urlImg).into(binding.profileImage)
+        }else{
+            binding.profileImage.setImageBitmap(UserData.bitmapImg)
+        }
+        val builder = StringBuilder()
+        builder.append(UserData.nombre)
+        builder.append(" ")
+        builder.append(UserData.apellidos)
+        binding.textViewNombre.text = builder.toString()
     }
 
 
@@ -116,7 +126,6 @@ class fragmentPerfil : Fragment() {
             auth.signOut()
             UserData.resetData()
             UserCollections.objetos.clear()
-            Collections.objetos.clear()
             startActivity(Intent(activity,MainActivity::class.java))
             requireActivity().finish()
     }

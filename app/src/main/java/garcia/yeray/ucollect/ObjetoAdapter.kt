@@ -26,7 +26,11 @@ class ObjetoAdapter(private val objeto : List<Objeto>):RecyclerView.Adapter<Obje
         fun render(objeto : Objeto) {
             val imagen = view.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.imagenObjeto)
             val titulo = view.findViewById<TextView>(R.id.nombreObjeto)
-            titulo.text = objeto.nombre
+            if(objeto.nombre.length > 21) {
+                titulo.text = objeto.nombre.substring(0,17) + "..."
+            }else {
+                titulo.text = objeto.nombre
+            }
             Glide.with(view).load(objeto.UrlImg).into(imagen)
             view.setOnClickListener {
                 val intent = Intent(view.context,VerObjetoUsuario::class.java)

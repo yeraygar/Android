@@ -13,7 +13,6 @@
         android:id="@+id/imagenObjeto"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="10dp"
         android:padding="10dp"
         android:src="@drawable/model"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,45 +24,28 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:text="@string/nombre_del_objeto"
+        android:singleLine="true"
+        android:textColor="#379AC8"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tipoObjeto"
+        app:layout_constraintBottom_toTopOf="@+id/usuarioEmail"
         app:layout_constraintStart_toEndOf="@+id/imagenObjeto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tipoObjeto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/tipo"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/precioObjeto"
-        app:layout_constraintStart_toEndOf="@+id/imagenObjeto"
-        app:layout_constraintTop_toBottomOf="@+id/tituloObjeto" />
-
-    <TextView
         android:id="@+id/usuarioEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:text="@string/nombre_usuario"
         android:textSize="14sp"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imagenObjeto"
-        app:layout_constraintTop_toBottomOf="@+id/precioObjeto" />
-
-    <TextView
-        android:id="@+id/precioObjeto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/precio"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/usuarioEmail"
-        app:layout_constraintStart_toEndOf="@+id/imagenObjeto"
-        app:layout_constraintTop_toBottomOf="@+id/tipoObjeto" />
+        app:layout_constraintStart_toStartOf="@+id/tituloObjeto"
+        app:layout_constraintTop_toBottomOf="@+id/tituloObjeto" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

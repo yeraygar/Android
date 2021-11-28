@@ -56,6 +56,7 @@
     <string name="intercambio">Intercambio</string>
     <string name="informaci_n">Información</string>
     <string name="guardar">Guardar</string>
+    <string name="mis_objetos">Mis Objetos</string>
     <string-array name="spinne_intercambio">
         <item>Aceptar intercambio</item>
         <item>Denegar intercambio</item>

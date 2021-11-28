@@ -6,27 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".verObjetos">
 
-    <Button
-        android:id="@+id/btnGuardar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#379AC8"
-        android:padding="15dp"
-        android:text="Reservar"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnGuardar2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,19 +27,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:scrollbars="vertical"
             android:background="@drawable/borde_edittext_editar_perfil"
             android:ems="10"
-            android:hint="@string/nombre_del_objeto"
-            android:inputType="textPersonName"
+            android:text="@string/nombre_del_objeto"
+            android:textSize="18sp"
             android:minHeight="48dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
 
         <TextView
             android:id="@+id/textView14"
@@ -69,17 +55,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
-        <Spinner
+        <TextView
             android:id="@+id/spinnerTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/spinner_style"
+            android:textSize="18sp"
+            android:scrollbars="horizontal"
+            android:background="@drawable/borde_edittext_editar_perfil"
             android:minHeight="48dp"
-            android:verticalScrollbarPosition="right"
+            android:text="@string/tipo"
             app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/textView15"
@@ -93,14 +81,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerTipo" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextNumberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borde_edittext_editar_perfil"
-            android:ems="10"
-            android:hint="@string/precio_del_objeto"
-            android:inputType="numberDecimal"
+            android:text="@string/precio_del_objeto"
+            android:textSize="18sp"
             android:minHeight="48dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -119,11 +106,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
-        <Spinner
+        <TextView
             android:id="@+id/spinner_intercambio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/spinner_style"
+            android:background="@drawable/borde_edittext_editar_perfil"
+            android:padding="10dp"
+            android:text="@string/intercambio"
+            android:textSize="18sp"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -142,16 +132,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinner_intercambio" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextTextUserEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borde_edittext_editar_perfil"
-            android:ems="10"
-            android:hint="@string/nombre_del_objeto"
-            android:inputType="textPersonName"
+            android:text="@string/nombre_del_objeto"
+            android:textSize="18sp"
             android:minHeight="48dp"
             android:padding="10dp"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userEmail" />
